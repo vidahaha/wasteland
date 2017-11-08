@@ -18,6 +18,7 @@ console.log(vida.__proto__ === Vida.prototype)
 class Haha extends Vida {
     
     constructor(x, y) {
+        super(x, y)
         this.x = x * x
         this.y = y * y
     }
@@ -25,4 +26,16 @@ class Haha extends Vida {
     toString() {
         return `[${this.x}, ${this.y}]`
     }
+
+    paToString() {
+        return super.toString()
+    }
+
 }
+
+let haha = new Haha(4, 5)
+console.log( haha instanceof Haha)
+console.log( haha instanceof Vida)
+console.log( haha.__proto__.__proto__)
+console.log( haha.toString() )
+console.log( haha.paToString()) //借用父方法
